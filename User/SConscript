@@ -1,0 +1,15 @@
+import rtconfig
+from building import *
+
+cwd = GetCurrentDir()
+
+src = Split('''
+main.c
+stm32f4xx_it.c
+board.c
+''')
+
+path = [cwd]#add head file path in the KEIL project
+
+group = DefineGroup('User', src, depend = [''], CPPPATH = path)
+Return('group')

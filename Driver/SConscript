@@ -1,0 +1,26 @@
+import rtconfig
+from building import *
+
+cwd = GetCurrentDir()
+
+src = Split('''
+Board_Driver/STM32F429I-Discovery/lcd_rgb.c
+Board_Driver/STM32F429I-Discovery/sdram.c
+Board_Driver/STM32F429I-Discovery/stm32f429i_discovery.c
+Board_Driver/STM32F429I-Discovery/stm32f429i_discovery_i2c_ee.c
+Board_Driver/STM32F429I-Discovery/stm32f429i_discovery_ioe.c
+Board_Driver/STM32F429I-Discovery/stm32f429i_discovery_l3gd20.c
+Delay/delay.c
+Usart/usart.c
+''')
+
+path = [cwd + '/Board_Driver/Common',
+		cwd + '/Board_Driver/STM32F429I-Discovery',
+		cwd + '/Usart',
+		cwd + '/Delay',
+			]#add head file path in the KEIL project
+			
+CPPDEFINES = ['USE_DEFAULT_TIMEOUT_CALLBACK']
+
+group = DefineGroup('Driver', src, depend = [''], CPPPATH = path,CPPDEFINES =CPPDEFINES)
+Return('group')

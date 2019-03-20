@@ -1,0 +1,10 @@
+.\objects\background.o: STemWin522\APP\background.c
+.\objects\background.o: D:\KEIL\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\background.o: STemWin522\inc\GUI.h
+.\objects\background.o: D:\KEIL\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\background.o: STemWin522\inc\GUI_ConfDefaults.h
+.\objects\background.o: STemWin522\Config\GUIConf.h
+.\objects\background.o: STemWin522\inc\GUI_Type.h
+.\objects\background.o: STemWin522\inc\LCD.h
+.\objects\background.o: STemWin522\inc\Global.h
+.\objects\background.o: STemWin522\inc\GUI_Version.h

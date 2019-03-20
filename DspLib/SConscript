@@ -1,0 +1,17 @@
+import rtconfig
+from building import *
+
+cwd = GetCurrentDir()
+
+src = Split('''
+''')
+
+LIBPATH=[cwd] #the path of the lib
+LIBS=['arm_cortexM4lf_math'] #the name of the lib,except .lib
+path = [cwd + '/Include']#add head file path in the KEIL project
+
+#add defien in the project settings :C/C++
+CPPDEFINES = ['ARM_MATH_CM4','__CC_ARM','ARM_MATH_MATRIX_CHECK','ARM_MATH_ROUNDING','__FPU_PRESENT=1','__FPU_USED=1']
+
+group = DefineGroup('Dsp_Lib', src, depend = [''],CPPPATH=path,LIBS=LIBS,LIBPATH = LIBPATH,CPPDEFINES = CPPDEFINES)
+Return('group')

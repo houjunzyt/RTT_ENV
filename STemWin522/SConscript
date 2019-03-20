@@ -1,0 +1,27 @@
+import rtconfig
+from building import *
+
+# get current directory
+cwd = GetCurrentDir()
+
+# The set of source files associated with this SConscript file.
+src = Split('''
+Config/GUIConf.c
+Config/GUIDRV_stm32f429i_discovery.c
+OS/GUI_X_OS.c
+APP/background.c
+APP/iconbitmap.c
+APP/iconviewdemo.c
+APP/TestAPP.c
+APP/sys_startup.c
+''')
+
+path = [cwd + '/inc',
+    cwd + '/Config',
+	cwd + '/APP']
+	
+LIBPATH=[cwd + '/Lib'] #the path of the lib
+LIBS=['STemWin540_CM4_OS_Keil_ot'] #the name of the lib,except .lib
+
+group = DefineGroup('STemwin', src, depend = [''], CPPPATH = path,LIBS=LIBS,LIBPATH = LIBPATH)
+Return('group',)
